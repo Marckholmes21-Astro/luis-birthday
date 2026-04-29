@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Acceso Clasificado</title>
+
+<style>
+body {
+    background-color: black;
+    color: #ffffff;
+    font-family: monospace;
+    text-align: center;
+    padding-top: 80px;
+    font-size: 18px;
+
+    /* CONTORNO AZUL */
+    text-shadow: 0 0 2px #001f3f, 0 0 6px #001f3f;
+}
+
+/* INPUT */
+input {
+    background: black;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    padding: 12px;
+    text-align: center;
+    font-family: monospace;
+    font-size: 18px;
+    text-shadow: 0 0 2px #001f3f;
+}
+
+/* TEXTO */
+#texto {
+    width: 80%;
+    margin: auto;
+    text-align: left;
+    line-height: 1.7;
+    padding: 20px;
+    display: none;
+    font-size: 18px;
+    text-shadow: 0 0 2px #001f3f, 0 0 6px #001f3f;
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: black;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    cursor: pointer;
+    font-size: 18px;
+    text-shadow: 0 0 2px #001f3f;
+}
+
+button:hover {
+    background-color: #ffffff;
+    color: black;
+    text-shadow: none;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>MENSAJE SWEAR</h1>
+
+<p>Ingrese código de autorización:</p>
+<input type="password" id="clave" placeholder="••••••••">
+<br>
+<button onclick="verificar()">Acceder</button>
+
+<div id="texto"></div>
+
+<!-- 🎧 AUDIO -->
+<audio id="musica" loop>
+    <source src="brother.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+const mensaje = `
+Usuario identificado: D-2286252... Acceso concedido.
+
+Cargando mensaje... 📩
+
+Feliz cumpleaños, Gordon. 🎉
+Level 31 unlocked. 🪖🫡
+
+Brodii En este día en que completas otra vuelta alrededor del sol, 🪐 quiero decirte algo que no siempre se dice, pero que siempre se siente: gracias por estar. No solo por existir en este mismo universo que yo, sino por mantenerte firme y constante siempre.
+
+La vida, como bien dirían los estoicos, no siempre es lo que esperamos, pero sí es lo que decidimos enfrentar. Y tú, 👊🏼 estúpida res, has elegido enfrentarla con carácter, disciplina y honor. No cualquiera carga con ese peso y lo transforma en propósito. 
+
+Eso se respeta… y se admira. Más que un sargento; eres ejemplo. En medio del caos, eres orden. En medio de la duda, eres decisión. en medio de los Sargentos reclutas como yo, eres la antigüedad experimentada; y en mi vida, eres esa referencia silenciosa que me recuerda que siempre se puede resistir un poco más, avanzar un poco más, ser un poco mejor. 🪖💚 "Siempre Leales" 
+
+Que este nuevo ciclo te encuentre con la mente clara como el vacío estelar, ☄️ el espíritu sereno como una noche sin tormenta, y el propósito tan brillante como una supernova. 💥 
+
+Y nunca olvides esto: sin importar cuán lejos nos lleven nuestras misiones, siempre estaremos en la misma constelación. Yo, aquí, orbitando cerca… firme, leal… presente. Feliz cumpleaños, Gordon. — You Brodii 👨🏻‍🚀🚀
+`;
+
+function verificar() {
+    const clave = document.getElementById("clave").value;
+
+    if (clave === "D-2286252") {
+        document.getElementById("texto").style.display = "block";
+
+        const audio = document.getElementById("musica");
+        audio.volume = 0.3; // volumen suave
+        audio.play();
+
+        escribirTexto();
+    } else {
+        alert("ACCESO DENEGADO ❌");
+    }
+}
+
+function escribirTexto() {
+    let i = 0;
+    const velocidad = 25;
+    const contenedor = document.getElementById("texto");
+
+    function escribir() {
+        if (i < mensaje.length) {
+            contenedor.innerHTML += mensaje.charAt(i);
+            i++;
+            setTimeout(escribir, velocidad);
+        }
+    }
+
+    escribir();
+}
+
+</script>
+
+</body>
+</html>
